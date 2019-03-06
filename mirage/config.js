@@ -49,4 +49,6 @@ this.get('/rentals', function(db, request) {
         return { data: rentals };
       }
     });
+
+this.passthrough('https://api.mapbox.com/**');
 }
