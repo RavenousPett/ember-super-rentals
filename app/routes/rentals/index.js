@@ -2,7 +2,11 @@ import Route from '@ember/routing/route';
 
 export default Route.extend({
     model() {
-        return {results: this.store.findAll('rental')};
+        // this.store.findAll('rental').then(results => {
+        //     console.log('results = ', results);
+        // });
+        // return {results: this.store.findAll('rental')};
+        return this.store.findAll('rental');
     },
     actions: {
         filterByCity(param) {
