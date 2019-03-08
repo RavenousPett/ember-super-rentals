@@ -9,17 +9,13 @@ export default Route.extend({
     },
     actions: {
         filterByCity(param) {
-        if (param !== '') {
+            const model = this.modelFor(this.routeName); // 'rentals.index'
+            console.log('model', model);
             return this.store
             .query('rental', { city: param }).then((results) => {
-                return { query: param, results: results };
+                console.log('query results', results);
+                model.set('results', results);
             });
-        } else {
-            return this.store
-            .findAll('rental').then((results) => {
-                return { query: param, results: results };
-            });
-        }
         }
     }
 });
