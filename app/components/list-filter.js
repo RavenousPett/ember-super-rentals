@@ -5,7 +5,6 @@ export default Component.extend({
   value: '',
 
   init() {
-    console.log(this.results)
     if (!this.results) {
       this.set('results', [])
     }
