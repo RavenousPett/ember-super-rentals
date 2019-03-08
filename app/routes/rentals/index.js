@@ -5,11 +5,15 @@ export default Route.extend({
         // this.store.findAll('rental').then(results => {
         //     console.log('results = ', results);
         // });
-        return {results: this.store.findAll('rental')};
+        return this.store.findAll('rental').then((results) => {
+            return {results: results.content};
+        });
+        // return {results: this.store.findAll('rental')};
     },
     afterModel(data) {
         console.log('model resolved');
-        console.log('model data = ', data.results);
+        console.log('model data = ', data);
+        debugger;
     },
     actions: {
         filterByCity(param) {
