@@ -1,13 +1,16 @@
 import Route from '@ember/routing/route';
 
+
+ users => cars
+
 export default Route.extend({
     model() {
-        return this.store.findAll('rental').then((results) => {
-            return {results: results.get('content')};
+        return this.store.findAll('rental').then(results => {
+            return {results: results};
         });
     },
-    afterModel(data) {
-        console.log('model data = ', data);
+    afterModel({results}) {
+        console.log(results.get('length'));
     },
     actions: {
         filterByCity(param) {

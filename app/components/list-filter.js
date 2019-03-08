@@ -4,12 +4,16 @@ export default Component.extend({
   classNames: ['list-filter'],
   value: '',
 
-  // init() {
-  //   this._super(...arguments);
+  init() {
+    console.log(this.results)
+    if (!this.results) {
+      this.set('results', [])
+    }
+    this._super(...arguments);
   //   this.filter('').then((allResults) => {
   //       this.set('results', allResults.results);
   //   });
-  // },
+  },
 
   actions: {
     handleFilterEntry() {

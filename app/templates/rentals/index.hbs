@@ -1,9 +1,12 @@
-<ListFilter @filter={{route-action "filterByCity"}} as |filteredResults|>
+{{#list-filter
+  results=model.results
+  filter=(route-action "filterByCity") as |filteredResults|
+}}
   <ul class="results">
     {{#each filteredResults as |rentalUnit|}}
       <li><RentalListing @rental={{rentalUnit}} /></li>
     {{/each}}
   </ul>
-</ListFilter>
-{{model.results.length}}
+{{/list-filter}}
+
 {{outlet}}
