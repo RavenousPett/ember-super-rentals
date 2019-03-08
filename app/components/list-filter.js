@@ -5,7 +5,7 @@ export default Component.extend({
   value: '',
 
   init() {
-    if (!this.results) {
+    if (!this.get('results')) {
       this.set('results', [])
     }
     this._super(...arguments);
